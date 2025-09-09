@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --light-background: #e0e0e0;
+  --light-primary: #cce4f4;
+  --light-accent: #ffffff;
+  --light-foreground: #333333;
+  --light-color: #333333;
+  --light-border: #333333;
+
+  --size-title: 64px;
+  --size-second_title: 50px;
+  --size_third_title: 40px;
+  --size-text: 24px;
+  --size-button: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--light-background);
+    --primary: var(--light-primary);
+    --foreground: var(--light-foreground);
+    --color: var(--light-color);
+    --accent: var(--light-accent);
+    --border: var(--light-border);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-default);
+  font-size: var(--size-text);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: var(--size-title);
+}
+
+h2 {
+  font-size: var(--size-second_title);
+}
+
+h3 {
+  font-size: var(--size_third_title);
+}
+
+.button {
+  font-size: var(--size-button);
+  font-family: var(--font-default);
+  background-color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-radius: 16px;
+  padding: 13px 15px;
+  border: 1pt solid var(--border);
+}
+
+.button-icon {
+  background-color: var(--primary);
+  border-radius: 24px;
+}
+
+.button_icon {
+  background-color: var(--accent);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1pt solid var(--border);
+}
+
+.pills{
+  display: flex;
+  width: 100%;
+  gap: 16px;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  width: 100%;
+  justify-content: center;
+  padding: 8px;
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  background-color: var(--accent);
+  font-size: var(--font-button);
+  background-image: linear-gradient(to right, var(--primary) var(--percent), var(--accent) var(--percent));
+  background-size: 100% 100%;
+  transition: background-image 1s linear;
+}
+
