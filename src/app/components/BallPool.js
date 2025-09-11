@@ -54,6 +54,8 @@ const BallPool = ({ languages }) => {
       }),
     ]);
 
+    //TODO: A falak nem reszponzivak majd meg kell csinálni :)
+
     // Jobb fal
     Composite.add(world, [
       Bodies.rectangle(width * 2 + 294, height, wallThick, height * 4, {
