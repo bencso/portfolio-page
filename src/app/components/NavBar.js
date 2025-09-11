@@ -19,9 +19,7 @@ const socials = [
   //   },
 ];
 
-export default function Navbar() {
-  const [tab, setTab] = useState("info");
-
+export default function Navbar({tab, setTab}) {
   return (
     <nav className="nav">
       <div className="tabs">
