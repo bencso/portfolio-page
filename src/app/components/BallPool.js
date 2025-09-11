@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState} from "react";
 import Matter from "matter-js";
 
 // Ez a kódrészlet a matter js examples-éből van.
@@ -81,16 +81,22 @@ const BallPool = ({ languages }) => {
     Composite.add(
       world,
       languages.map((lang) =>
-        Bodies.rectangle(Math.floor(Math.random() * 1000) + (-200), 50, ballRadius+92,ballRadius+92, {
-          render: {
-            sprite: {
-              texture: lang.img,
+        Bodies.rectangle(
+          Math.floor(Math.random() * 1000) + -200,
+          600,
+          ballRadius + 92,
+          ballRadius + 92,
+          {
+            render: {
+              sprite: {
+                texture: lang.img,
+              },
             },
-          },
-          chamfer:{
-            radius: [40,40,40,40]
+            chamfer: {
+              radius: [40, 40, 40, 40],
+            },
           }
-        })
+        )
       )
     );
 
@@ -106,7 +112,6 @@ const BallPool = ({ languages }) => {
       });
 
     Composite.add(world, mouseConstraint);
-
     render.mouse = mouse;
 
     Render.lookAt(render, {
@@ -124,9 +129,19 @@ const BallPool = ({ languages }) => {
       }
       render.textures = {};
     };
-  }, []);
+  }, [languages]);
 
-  return <div className="w-full h-full z-10" ref={sceneRef} />;
+  const [isGrabbing, setIsGrabbing] = useState(false);
+
+  return (
+    <div
+      className={`w-full h-full z-10 ${isGrabbing ? "cursor-grabbing" : "cursor-grab"}`}
+      ref={sceneRef}
+      onMouseDown={() => setIsGrabbing(true)}
+      onMouseUp={() => setIsGrabbing(false)}
+      onMouseLeave={() => setIsGrabbing(false)}
+    />
+  );
 };
 
 export default BallPool;
