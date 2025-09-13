@@ -412,7 +412,7 @@ h3 {
   min-height: 340px;
   justify-content: space-between;
 
-  h1{
+  h1 {
     font-size: 3.7rem;
     line-height: 3.5rem;
   }
@@ -475,4 +475,110 @@ h3 {
   padding: 20px 0px;
   z-index: 1;
   font-size: 2rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent);
+  border-radius: 24px;
+  padding: 24px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 6px;
+
+      input,
+      textarea {
+        border-radius: 16px;
+        padding-right: 12px;
+        cursor: pointer;
+        font-size: var(--size-text);
+        padding-left: 12px;
+        background-color: var(--accent);
+        padding-top: 6px;
+        padding-bottom: 6px;
+        border: 1pt solid var(--border);
+        outline: none;
+
+        &:-webkit-autofill {
+          -webkit-appearance: none;
+          outline: none;
+          appearance: none;
+          -webkit-box-shadow: 0 0 0 1000px transparent inset;
+          color: var(--color) !important;
+        }
+      }
+
+      input,
+      input:-webkit-autofill {
+        &[type="email"] {
+          text-transform: lowercase;
+        }
+
+        &:valid {
+          border-color: #00b612;
+          -webkit-box-shadow: 0 0 0 1000px rgba(91, 182, 0, 0.1) inset;
+
+          &::selection {
+            background-color: rgba(91, 182, 0, 0.2);
+          }
+        }
+
+        &:invalid {
+          border-color: #b60000;
+          -webkit-box-shadow: 0 0 0 1000px rgba(182, 0, 0, 0.2) inset;
+
+          &::selection {
+            background-color: rgba(182, 0, 0, 0.2);
+          }
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        height: 3.8rem;
+        padding: 1rem;
+        max-height: 15rem;
+        field-sizing: content;
+      }
+    }
+
+    button {
+      font-size: var(--size-button);
+      font-family: var(--font-default);
+      display: flex;
+      align-items: center;
+      border-radius: 16px;
+      padding-right: 12px;
+      cursor: pointer;
+      padding-left: 12px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      border: 1pt solid var(--border);
+      width: fit-content;
+      -webkit-transition: background-color 500ms ease-in-out;
+      -ms-transition: background-color 500ms ease-in-out;
+      transition: background-color 500ms ease-in-out;
+
+      &:hover {
+        background-color: var(--hover);
+        color: var(--hover-text);
+      }
+
+      &:focus {
+        outline: none;
+        background-color: var(--hover);
+      }
+    }
+  }
 }
