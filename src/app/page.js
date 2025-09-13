@@ -6,17 +6,31 @@ import Slider from "./components/Slider";
 import Works from "./components/Works";
 import WorksWith from "./components/WorksWith";
 import Navbar from "./components/NavBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PlayGround from "./components/PlayGround";
 
 export default function Home() {
-  const [section, setSection] = useState("works");
+  const [section, setSection] = useState(null);
+
+  useEffect(() => {
+    const savedSection = localStorage.getItem("section");
+    if (savedSection) {
+      setSection(savedSection);
+    } else {
+      localStorage.setItem("section", "info");
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("section", section);
+  }, [section]);
+
   return (
     <>
-      <Navbar  setTab={setSection} tab={section}/>
+      <Navbar setTab={setSection} tab={section} />
       <div className="parent">
         <div className="child1">
-          <ItsMeBlock />
+          <ItsMeBlock tab={section} setTab={setSection}/>
           <WorksWith />
           <LetsCollabBlock />
         </div>
@@ -27,9 +41,14 @@ export default function Home() {
               <Slider />
             </>
           )}
-                    {section === "works" && (
+          {section === "works" && (
             <>
               <PlayGround />
+            </>
+          )}
+          {section === "about" && (
+            <>
+              <div>ABOUT</div>
             </>
           )}
         </div>

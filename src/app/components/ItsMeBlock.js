@@ -2,12 +2,22 @@ import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
 import IconButton from "./buttons/IconButton";
 
-export default function ItsMeBlock() {
+export default function ItsMeBlock({setTab,tab}) {
+
+  function onClick(){
+    setTab("about");
+  }
+
   return (
     <div className="itsme-block">
       <div className="itsme-block_flex">
-        <h2>It&apos;s me</h2>
-       <IconButton text="Who are you?"/>
+        {
+          tab != "about" && <h2>It&apos;s me</h2>
+        }
+        {
+          tab == "about" && <h1>Bábolnai<br/>Bence</h1>
+        }
+       <IconButton text="Who are you?" action={onClick}/>
       </div>
       <Image
         src={"/images/me.png"}

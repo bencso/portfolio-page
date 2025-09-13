@@ -10,12 +10,12 @@
   --light-color: #333333;
   --light-border: #8ad0ff;
 
-  --size-title: 36px;
-  --size-second_title: 32px;
-  --size_third_title: 28px;
-  --size-text: 20px;
-  --size-button: 16px;
-  --size-small: 16px;
+  --size-title: 3rem;
+  --size-second_title: 2.5rem;
+  --size_third_title: 1.5rem;
+  --size-text: 1.2rem;
+  --size-button: 1rem;
+  --size-small: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -89,6 +89,7 @@ h3 {
   cursor: pointer;
   padding-left: 12px;
   padding-top: 6px;
+  width: fit-content;
   padding-bottom: 6px;
   border: 1pt solid var(--border);
   -webkit-transition: background-color 500ms ease-in-out;
@@ -291,7 +292,7 @@ h3 {
     8px 8px 20px 0 rgba(0, 0, 0, 0.5),
     inset 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
   display: inline-block;
-  background-image: url("/images/works/webdevelopment.png");
+  background-image: var(--img-url);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -410,6 +411,11 @@ h3 {
   flex-direction: column;
   min-height: 340px;
   justify-content: space-between;
+
+  h1{
+    font-size: 3.7rem;
+    line-height: 3.5rem;
+  }
 }
 
 .itsme-block_image {
@@ -468,4 +474,5 @@ h3 {
   line-height: 35px;
   padding: 20px 0px;
   z-index: 1;
+  font-size: 2rem;
 }
