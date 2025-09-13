@@ -25,16 +25,9 @@ export default function Home() {
     localStorage.setItem("section", section);
   }, [section]);
 
+  function RightLayout(){
   return (
-    <>
-      <Navbar setTab={setSection} tab={section} />
-      <div className="parent">
-        <div className="child1">
-          <ItsMeBlock tab={section} setTab={setSection}/>
-          <WorksWith />
-          <LetsCollabBlock />
-        </div>
-        <div className="child2">
+    <div className="child2">
           {section === "info" && (
             <>
               <Works />
@@ -51,7 +44,25 @@ export default function Home() {
               <div>ABOUT</div>
             </>
           )}
+          {section === "contact" && (
+            <>
+              <div>Contact</div>
+            </>
+          )}
         </div>
+  )
+}
+
+  return (
+    <>
+      <Navbar setTab={setSection} tab={section} />
+      <div className="parent">
+        <div className="child1">
+          <ItsMeBlock tab={section} setTab={setSection}/>
+          <WorksWith />
+          <LetsCollabBlock tab={section} setTab={setSection}/>
+        </div>
+        <RightLayout/>
       </div>
     </>
   );

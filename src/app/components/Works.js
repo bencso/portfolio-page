@@ -1,5 +1,4 @@
 import { useState } from "react";
-import IconButton from "./buttons/IconButton";
 import WorkDiv from "./works/WorkDiv";
 
 const works = [
@@ -21,9 +20,7 @@ const works = [
 
 export default function Works() {
   const [selectedWork, setSelectedWork] = useState(0);
-
   
-
   return (
     <div className="works">
       <div className="works-pills">

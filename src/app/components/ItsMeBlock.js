@@ -17,7 +17,7 @@ export default function ItsMeBlock({setTab,tab}) {
         {
           tab == "about" && <h1>Bábolnai<br/>Bence</h1>
         }
-       <IconButton text="Who are you?" action={onClick}/>
+       {tab!="about" && <IconButton text="Who are you?" action={onClick}/>}
       </div>
       <Image
         src={"/images/me.png"}
