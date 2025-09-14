@@ -3,9 +3,9 @@
 import { Fragment, useRef, useState } from "react";
 
 const services = [
-  "UI/UX design",
-  "Webfejlesztés (Kóddal)",
-  "Webfejlesztés (CMS-el)",
+  "Weboldal készítés - tartalomkészítővel",
+  "Egyedi weboldal készítés",
+  "UI/UX tervezés",
 ];
 
 export default function Contact() {
@@ -15,17 +15,38 @@ export default function Contact() {
   const [message, setMessage] = useState("");
   const checkboxesRef = useRef("checkboxesRef");
 
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [servicesError, setServicesError] = useState("");
+
   function sendForm() {
     let array = Array.from(checkboxesRef.current.children);
     let someChecked = array.some((e) => e.firstChild.checked);
 
+    let hasError = false;
+
     if (name.length <= 0) {
-      alert("Kérem adja meg a nevét!");
-    } else if (email.length <= 0) {
-      alert("Kérem adja meg az email címét!");
-    } else if (!someChecked && interess.length <= 0) {
-      alert("Kérem jelöljön be legalább egy szolgáltatást!");
+      setNameError("Kérem adja meg a nevét!");
+      hasError = true;
     } else {
+      setNameError("");
+    }
+
+    if (email.length <= 0) {
+      setEmailError("Kérem adja meg az email címét!");
+      hasError = true;
+    } else {
+      setEmailError("");
+    }
+
+    if (!someChecked && interess.length <= 0) {
+      setServicesError("Kérem jelöljön be legalább egy szolgáltatást!");
+      hasError = true;
+    } else {
+      setServicesError("");
+    }
+
+    if (!hasError) {
       console.log(name, email, message, interess.join(","));
     }
   }
@@ -48,6 +69,9 @@ export default function Contact() {
             autoComplete="billing name"
             tabIndex={1}
           />
+          <span className="error" id="name-error">
+            {nameError}
+          </span>
         </div>
         <div>
           <label htmlFor="email">Email:</label>
@@ -64,6 +88,9 @@ export default function Contact() {
             pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
             tabIndex={2}
           />
+          <span className="error" id="email-error">
+            {emailError}
+          </span>
         </div>
         <div>
           <label htmlFor="message">Üzenet:</label>
@@ -101,6 +128,9 @@ export default function Contact() {
               );
             })}
           </div>
+          <span className="error" id="services-error">
+            {servicesError}
+          </span>
         </div>
         <button onClick={() => sendForm()} tabIndex={4}>
           Küldés

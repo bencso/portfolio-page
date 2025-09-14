@@ -486,6 +486,11 @@ h3 {
   border-radius: 24px;
   padding: 24px;
 
+  .error{
+    font-size: var(--size-small);
+    color: #b60000;
+  }
+
   .contact-form {
     display: flex;
     flex-direction: column;
