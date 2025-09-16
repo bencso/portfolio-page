@@ -238,9 +238,27 @@ h3 {
   text-transform: uppercase;
   background-color: var(--accent);
   font-size: var(--font-button);
-  background-image: linear-gradient(to right, var(--primary) var(--percent), var(--accent) var(--percent));
   background-size: 100% 100%;
-  transition: background-image 1s linear;
+   position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  p{
+    z-index: 3;
+  }
+}
+
+.works-pills_pill[data-active="true"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--primary);
+  height: 100%;
+  width: 0;
+  z-index: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) ease-in-out;
+  opacity: 0;
 }
 
 /*WORKS szekió div*/
@@ -486,7 +504,7 @@ h3 {
   border-radius: 24px;
   padding: 24px;
 
-  .error{
+  .error {
     font-size: var(--size-small);
     color: #b60000;
   }
@@ -577,9 +595,9 @@ h3 {
           appearance: none;
         }
 
-        input:checked + label{
-            background-color: var(--hover);
-            color: var(--hover-text);
+        input:checked + label {
+          background-color: var(--hover);
+          color: var(--hover-text);
         }
 
         label {
