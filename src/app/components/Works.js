@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import WorkDiv from "./works/WorkDiv";
+import { motion, AnimatePresence } from "motion/react";
 
 const works = [
   {
@@ -22,16 +23,13 @@ export default function Works() {
   const [selectedWork, setSelectedWork] = useState(0);
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef(null);
-  //TODO: megcsinálni hogy a width a progressbaron legyen majd a progressnek megfelelő stb.
-  const progressBar = useRef(null);
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setProgress((prev) => prev + 1);
-    }, 100);
+    }, 80);
 
     if (progress === 100) {
-      clearInterval(intervalRef.current);
       if (selectedWork + 1 == works.length) setSelectedWork(0);
       else setSelectedWork((prev) => prev + 1);
     }
@@ -40,31 +38,44 @@ export default function Works() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress]);
 
+  function clickPill(index) {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setProgress(0);
+    setSelectedWork(index);
+  }
+
   useEffect(() => {
     setProgress(0);
-
-    return () => clearInterval(intervalRef.current);
   }, [selectedWork]);
 
   return (
     <div className="works">
       <div className="works-pills">
-        {works.flatMap((work, idx) => {
-          return (
-            <div
-              onClick={() => setSelectedWork(works.indexOf(work))}
-              key={idx}
-              className="works-pills_pill"
-              style={{ "--percent": `${progress}%` }}
-              data-active={selectedWork === works.indexOf(work)}
-            >
-              <p>{work.name}</p>
-            </div>
-          );
-        })}
+        {works.map((work, idx) => (
+          <div
+            onClick={() => clickPill(idx)}
+            key={idx}
+            className={`works-pills_pill${
+              selectedWork === idx ? " active" : ""
+            }`}
+          >
+            <p>{work.name}</p>
+            {selectedWork === idx && (
+              <div className="progress-bar">
+                <div
+                  className="progress-bar__fill"
+                  style={{
+                    width: `${progress}%`,
+                    transition: progress === 0 ? "none" : "width 0.1s linear",
+                  }}
+                />
+              </div>
+            )}
+          </div>
+        ))}
       </div>
 
-      {selectedWork >= 0 && works.length >= selectedWork && (
+      {selectedWork >= 0 && selectedWork < works.length && (
         <WorkDiv
           name={works[selectedWork].name}
           img={works[selectedWork].img}

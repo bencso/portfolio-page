@@ -230,6 +230,7 @@ h3 {
 .works-pills_pill {
   display: flex;
   align-items: center;
+  position: relative;
   border-radius: 16px;
   width: 100%;
   justify-content: center;
@@ -239,26 +240,40 @@ h3 {
   background-color: var(--accent);
   font-size: var(--font-button);
   background-size: 100% 100%;
-   position: relative;
+  position: relative;
   z-index: 1;
   overflow: hidden;
 
-  p{
+  p {
     z-index: 3;
   }
 }
 
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .works-pills_pill[data-active="true"]::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   background-color: var(--primary);
   height: 100%;
-  width: 0;
+  width: var(--percent);
   z-index: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) ease-in-out;
-  opacity: 0;
 }
 
 /*WORKS szekió div*/
