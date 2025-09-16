@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import WorkDiv from "./works/WorkDiv";
-import { motion, AnimatePresence } from "motion/react";
 
 const works = [
   {
