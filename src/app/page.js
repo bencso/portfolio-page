@@ -1,14 +1,14 @@
 "use client";
 
-import LetsCollabBlock from "./components/LetsCollab";
-import ItsMeBlock from "./components/ItsMeBlock";
+import LetsCollabBlock from "./components/sections/LetsCollab";
+import ItsMeBlock from "./components/sections/ItsMeBlock";
 import Slider from "./components/Slider";
-import Works from "./components/Works";
-import WorksWith from "./components/WorksWith";
-import Navbar from "./components/NavBar";
+import Works from "./components/sections/rightSections/Works";
+import WorksWith from "./components/sections/WorksWith";
+import Navbar from "./components/navbar/NavBar";
 import { useEffect, useState } from "react";
-import PlayGround from "./components/PlayGround";
-import Contact from "./components/Contact";
+import PlayGround from "./components/sections/rightSections/PlayGround";
+import Contact from "./components/sections/rightSections/Contact";
 
 export default function Home() {
   const [section, setSection] = useState(null);
@@ -45,9 +45,7 @@ export default function Home() {
             <div>ABOUT</div>
           </>
         )}
-        {section === "contact" && (
-            <Contact/>
-        )}
+        {section === "contact" && <Contact />}
       </div>
     );
   }

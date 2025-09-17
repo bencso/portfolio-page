@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import WorkDiv from "./works/WorkDiv";
+import WorkDiv from "../../works/WorkDiv";
 
 const works = [
   {

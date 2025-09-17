@@ -1,4 +1,4 @@
-import Button from "./buttons/Button";
+import Button from "../buttons/Button";
 
 export default function LetsCollabBlock({tab,setTab}){
 

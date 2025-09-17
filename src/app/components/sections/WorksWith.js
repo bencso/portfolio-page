@@ -1,4 +1,4 @@
-import BallPool from "./BallPool";
+import BallPool from "../BallPool";
 
 //TODO Megcsinálni azt hogy reszponziv képek :) , szóval legyen majd telefonra tabletre és gépre jó kép is, különböző nagyságban :)
 const languages = [

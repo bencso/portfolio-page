@@ -1,6 +1,5 @@
-import { AiOutlineRight } from "react-icons/ai";
 import Image from "next/image";
-import IconButton from "./buttons/IconButton";
+import IconButton from "../buttons/IconButton";
 
 export default function ItsMeBlock({setTab,tab}) {
 
