@@ -88,6 +88,7 @@ const BallPool = ({ languages }) => {
     Composite.add(world, mouseConstraint);
     render.mouse = mouse;
 
+    //! ez nagyon fontos volt, mert ez miatt lehet reszponziv, ez miatt nem tudtam egy ideig megcsinálni a reszponzivitást!
     Render.lookAt(render, {
       min: { x: 0, y: 0 },
       max: { x: width, y: height },
