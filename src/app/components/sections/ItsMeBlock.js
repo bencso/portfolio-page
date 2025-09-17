@@ -24,6 +24,7 @@ export default function ItsMeBlock({setTab,tab}) {
         width={208}
         height={100}
         loading="eager"
+        priority
         className="itsme-block_image"
         draggable={false}
       />

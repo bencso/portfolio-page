@@ -48,6 +48,8 @@
   display: inline-block;
   background-repeat: no-repeat;
   background-size: cover;
+  image-rendering: optimizeQuality;
+  background-image: var(--img-url);
   width: 100%;
   aspect-ratio: 16 / 9;
   height: 700px;

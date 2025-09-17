@@ -6,9 +6,12 @@ import Slider from "./components/Slider";
 import Works from "./components/sections/rightSections/Works";
 import WorksWith from "./components/sections/WorksWith";
 import Navbar from "./components/navbar/NavBar";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PlayGround from "./components/sections/rightSections/PlayGround";
 import Contact from "./components/sections/rightSections/Contact";
+import WebDevelopment from "./components/sections/rightSections/works/Webdevelopment";
+import UiDesign from "./components/sections/rightSections/works/UiUxDesign";
+import About from "./components/sections/rightSections/AboutMe";
 
 export default function Home() {
   const [section, setSection] = useState(null);
@@ -27,27 +30,23 @@ export default function Home() {
   }, [section]);
 
   function RightLayout() {
-    return (
+   return useMemo(()=>{
+     return (
       <div className="child2">
         {section === "info" && (
           <>
-            <Works />
+            <Works setSection={setSection} />
             <Slider />
           </>
         )}
-        {section === "works" && (
-          <>
-            <PlayGround />
-          </>
-        )}
-        {section === "about" && (
-          <>
-            <div>ABOUT</div>
-          </>
-        )}
+        {section === "works" && <PlayGround />}
+        {section === "about" && <About />}
         {section === "contact" && <Contact />}
+        {section === "web development" && <WebDevelopment />}
+        {section === "ui/ux design" && <UiDesign />}
       </div>
     );
+   },[]);
   }
 
   return (

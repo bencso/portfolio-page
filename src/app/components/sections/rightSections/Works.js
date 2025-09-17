@@ -7,19 +7,19 @@ const works = [
     name: "Web development",
     description:
       "We craft unique, conversion-driven websites that help startups grow faster.",
-    img: "/images/works/test.jpg",
-    cta: "Who are you?",
+    img: "/images/works/test.jpeg",
+    cta: "I want this!",
   },
   {
     name: "UI/UX Design",
     description:
       "We craft unique, conversion-driven websites that help startups grow faster.",
-    img: "/images/works/test.jpg",
+    img: "/images/works/test.jpeg",
     cta: "Who are you?",
   },
 ];
 
-export default function Works() {
+export default function Works({setSection}) {
   const [selectedWork, setSelectedWork] = useState(0);
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef(null);
@@ -81,6 +81,7 @@ export default function Works() {
           img={works[selectedWork].img}
           cta={works[selectedWork].cta}
           description={works[selectedWork].description}
+          setSection={setSection}
         />
       )}
     </div>

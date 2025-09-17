@@ -1,6 +1,7 @@
 import IconButton from "../buttons/IconButton";
 
-export default function WorkDiv({name,description,img, cta}){
+//TODO: késöbb context-be tenni a sectiont :)
+export default function WorkDiv({name,description,img, cta,setSection}){
     return (
          <div className="works-section">
         <div className="works-section_text">
@@ -10,10 +11,9 @@ export default function WorkDiv({name,description,img, cta}){
               {description}
             </p>
           </div>
-          <IconButton text={cta} />
+          <IconButton text={cta} action={()=>setSection(name.toLowerCase())}/>
         </div>
-        <div className="works-img" style={{"--img-url" : `url(${img})`}}>
-          </div>
+        <div className="works-img" style={{"--img-url" : `url(${img})`}}/>
       </div>
     )
 }
