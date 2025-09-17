@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import url("./styles/button.module.css");
+@import url("./styles/navbar.module.css");
 
 :root {
   --light-background: #e0e0e0;
@@ -70,126 +72,6 @@ h2 {
 
 h3 {
   font-size: var(--size_third_title);
-}
-
-.nav {
-  width: 100%;
-  display: flex;
-  margin-bottom: 16px;
-}
-
-.button {
-  font-size: var(--size-button);
-  font-family: var(--font-default);
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  border-radius: 16px;
-  padding-right: 12px;
-  cursor: pointer;
-  padding-left: 12px;
-  padding-top: 6px;
-  width: fit-content;
-  padding-bottom: 6px;
-  border: 1pt solid var(--border);
-  -webkit-transition: background-color 500ms ease-in-out;
-  -ms-transition: background-color 500ms ease-in-out;
-  transition: background-color 500ms ease-in-out;
-
-  &:hover {
-    background-color: var(--hover);
-    color: var(--hover-text);
-  }
-}
-
-.button-icon {
-  background-color: var(--primary);
-  border-radius: 16px;
-  border: 1pt solid var(--primary);
-}
-
-.button_icon {
-  background-color: var(--accent);
-  border-radius: 8px;
-  padding: 6px;
-}
-
-/*Nav*/
-.nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.nav .tabs {
-  display: flex;
-  align-items: center;
-  border-radius: 16px;
-  padding-right: 12px;
-  padding-left: 12px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  gap: 12px;
-  background-color: var(--accent);
-}
-
-.nav .tabs .tabs-tab {
-  display: flex;
-  cursor: pointer;
-  border-radius: 16px;
-  padding-right: 12px;
-  padding-left: 12px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  -webkit-transition: background-color 500ms ease-in-out;
-  -ms-transition: background-color 500ms ease-in-out;
-  transition: background-color 500ms ease-in-out;
-
-  input {
-    opacity: 0;
-    position: absolute;
-    visibility: hidden;
-  }
-}
-
-.nav .tabs .tabs-tab:hover {
-  background-color: var(--hover);
-  color: var(--hover-text);
-}
-
-.nav .tabs .tabs-tab.active {
-  background-color: var(--primary);
-}
-
-.nav .socials {
-  display: flex;
-  align-items: center;
-  border-radius: 16px;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  gap: 12px;
-  background-color: var(--accent);
-}
-
-.nav .socials .socials-social {
-  display: flex;
-  border-radius: 16px;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border: 1pt solid var(--border);
-  -webkit-transition: all 500ms ease-in-out;
-  -ms-transition: all 500ms ease-in-out;
-  transition: all 500ms ease-in-out;
-  color: var(--foreground);
-
-  &:hover {
-    background-color: var(--hover);
-    color: var(--hover-text);
-  }
 }
 
 /*"Bento Grid"*/
@@ -325,7 +207,6 @@ h3 {
     8px 8px 20px 0 rgba(0, 0, 0, 0.5),
     inset 4px 4px 20px 0 rgba(0, 0, 0, 0.25);
   display: inline-block;
-  background-image: var(--img-url);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;

@@ -12,7 +12,8 @@ export default function WorkDiv({name,description,img, cta}){
           </div>
           <IconButton text={cta} />
         </div>
-        <div className="works-img" style={{"--img-url" : `url(${img})`}} />
+        <div className="works-img" style={{"--img-url" : `url(${img})`}}>
+          </div>
       </div>
     )
 }

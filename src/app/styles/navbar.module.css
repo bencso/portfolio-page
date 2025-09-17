@@ -1,0 +1,78 @@
+/*Nav*/
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.nav .tabs {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding-right: 12px;
+  padding-left: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  gap: 12px;
+  background-color: var(--accent);
+}
+
+.nav .tabs .tabs-tab {
+  display: flex;
+  cursor: pointer;
+  border-radius: 16px;
+  padding-right: 12px;
+  padding-left: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  -webkit-transition: background-color 500ms ease-in-out;
+  -ms-transition: background-color 500ms ease-in-out;
+  transition: background-color 500ms ease-in-out;
+
+  input {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+  }
+}
+
+.nav .tabs .tabs-tab:hover {
+  background-color: var(--hover);
+  color: var(--hover-text);
+}
+
+.nav .tabs .tabs-tab.active {
+  background-color: var(--primary);
+}
+
+.nav .socials {
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  gap: 12px;
+  background-color: var(--accent);
+}
+
+.nav .socials .socials-social {
+  display: flex;
+  border-radius: 16px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1pt solid var(--border);
+  -webkit-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  color: var(--foreground);
+
+  &:hover {
+    background-color: var(--hover);
+    color: var(--hover-text);
+  }
+}

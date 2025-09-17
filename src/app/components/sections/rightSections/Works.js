@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import WorkDiv from "../../works/WorkDiv";
 
+//TODO: Képeket majd kicsinyiteni SEO / teljesitmény miatt :)
 const works = [
   {
     name: "Web development",
