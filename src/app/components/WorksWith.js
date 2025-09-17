@@ -5,7 +5,7 @@ const languages = [
     img: "/images/languages/framer.png",
   },
   {
-    img: "/images/languages/tailwindcss.png",
+    img: "/images/languages/laravel.png",
   },
   {
     img: "/images/languages/nextjs.png",

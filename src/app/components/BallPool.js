@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Matter from "matter-js";
 
 // Ez a kódrészlet a matter js examples-éből van.
@@ -44,63 +44,35 @@ const BallPool = ({ languages }) => {
     runnerRef.current = runner;
     Runner.run(runner, engine);
 
-    const ballRadius = 140;
+    const ballRadius = 80;
     const wallThick = ballRadius * 2;
 
     Composite.add(world, [
-      Bodies.rectangle(400, 739, 1800, wallThick, {
+      Bodies.rectangle(width / 2, height + wallThick / 2, width, wallThick, {
         isStatic: true,
-        render: { fillStyle: "transparent" },
+        render: { fillStyle: "red" },
       }),
     ]);
 
-    //TODO: A falak nem reszponzivak majd meg kell csinálni :)
-
-    // Jobb fal
-    Composite.add(world, [
-      Bodies.rectangle(width * 2 + 294, height, wallThick, height * 4, {
-        isStatic: true,
-        render: { fillStyle: "black" },
-      }),
-    ]);
-
-    // Bal fal
-    Composite.add(world, [
-      Bodies.rectangle(-578, height, wallThick, height * 4, {
-        isStatic: true,
-        render: { fillStyle: "black" },
-      }),
-    ]);
-
-    // Felső fal
-    Composite.add(world, [
-      Bodies.rectangle(width, -140, width * 4, wallThick, {
-        isStatic: true,
-        render: { fillStyle: "black" },
-      }),
-    ]);
-
-    Composite.add(
-      world,
-      languages.map((lang) =>
-        Bodies.rectangle(
-          Math.floor(Math.random() * 1000) + -200,
-          600,
-          ballRadius + 92,
-          ballRadius + 92,
-          {
-            render: {
-              sprite: {
-                texture: lang.img,
-              },
-            },
-            chamfer: {
-              radius: [40, 40, 40, 40],
-            },
+    const balls = languages.map((lang) =>
+      Bodies.rectangle(
+        Math.floor(Math.random() * width -100) + width * 100,
+        Math.random() * 100 + 50,
+        ballRadius,
+        ballRadius,
+        {
+          render: {
+            sprite: {
+              texture: lang.img
+            }
+          },
+          chamfer: {
+            radius: 20
           }
-        )
+        }
       )
     );
+    Composite.add(world, balls);
 
     const mouse = Mouse.create(render.canvas),
       mouseConstraint = MouseConstraint.create(engine, {
@@ -118,7 +90,19 @@ const BallPool = ({ languages }) => {
 
     Render.lookAt(render, {
       min: { x: 0, y: 0 },
-      max: { x: 800, y: 600 },
+      max: { x: width, y: height },
+    });
+
+    Matter.Events.on(engine, "beforeUpdate", () => {
+      balls.forEach((ball) => {
+        if (ball.position.y > height + ballRadius) {
+          Matter.Body.setPosition(ball, {
+            x: Math.floor(Math.random() * width * 0.8) + width * 0.1,
+            y: Math.random() * 100 + 50,
+          });
+          Matter.Body.setVelocity(ball, { x: 0, y: 0 });
+        }
+      });
     });
 
     return () => {
@@ -137,7 +121,9 @@ const BallPool = ({ languages }) => {
 
   return (
     <div
-      className={`w-full h-full z-10 ${isGrabbing ? "cursor-grabbing" : "cursor-grab"}`}
+      className={`w-full h-full z-10 ${
+        isGrabbing ? "cursor-grabbing" : "cursor-grab"
+      }`}
       ref={sceneRef}
       onMouseDown={() => setIsGrabbing(true)}
       onMouseUp={() => setIsGrabbing(false)}
