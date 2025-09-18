@@ -19,7 +19,7 @@ const works = [
   },
 ];
 
-export default function Works({setSection}) {
+export default function Works({ setSection }) {
   const [selectedWork, setSelectedWork] = useState(0);
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef(null);
