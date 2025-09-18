@@ -21,6 +21,11 @@
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 
+  @media (max-width: 1000px) {
+    flex: 100%;
+    max-width: 100%;
+  }
+
   figure {
     width: 100%;
     vertical-align: middle;
@@ -34,8 +39,8 @@
     transition: box-shadow 0.3s;
     overflow: hidden;
 
-    &:hover{
-      img{
+    &:hover {
+      img {
         scale: 105%;
       }
     }
@@ -45,7 +50,6 @@
       object-fit: fill;
       border-radius: 12px;
       image-rendering: optimizeQuality;
-      
     }
   }
 }

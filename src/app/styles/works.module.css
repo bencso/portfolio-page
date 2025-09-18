@@ -15,6 +15,10 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+
+    @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 }
 
 .works-section .works-section_text {
@@ -53,6 +57,13 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   height: 700px;
+
+    @media (max-width: 1000px) {
+    height: fit-content;
+    bottom: -10%;
+    right: 0;
+  }
+
   z-index: 1;
 
   img {
@@ -65,6 +76,10 @@
   display: flex;
   width: 100%;
   gap: 6px;
+
+    @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 }
 
 .works-pills_pill {
@@ -83,6 +98,11 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+
+
+    @media (max-width: 1000px) {
+    padding: 16px;
+  }
 
   p {
     z-index: 3;

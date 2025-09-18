@@ -120,6 +120,7 @@ const BallPool = ({ languages }) => {
 
   const [isGrabbing, setIsGrabbing] = useState(false);
 
+  //TODO: Ezt még reszponzivra csinálni.
   return (
     <div
       className={`w-full h-full z-10 ${

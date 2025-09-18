@@ -110,10 +110,11 @@ h3 {
 }
 
 /*TODO: RESZPONZIVITÁS!!!! :) */
-@media screen and (max-width: 1000px) {
+@media (max-width: 1000px) {
   .parent {
     display: flex;
     flex-direction: column-reverse;
     height: auto;
+    gap: 12px;
   }
 }
