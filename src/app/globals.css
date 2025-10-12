@@ -21,7 +21,7 @@
 
   --size-title: 3rem;
   --size-second_title: 2.5rem;
-  --size_third_title: 1.5rem;
+  --size_third_title: 1.8rem;
   --size-text: 1.2rem;
   --size-button: 1rem;
   --size-small: 1rem;
@@ -70,15 +70,15 @@ h3 {
 }
 
 h1 {
-  font-size: var(--size-title);
+  font-size: clamp(2.2rem, 6vw, var(--size-title));
 }
 
 h2 {
-  font-size: var(--size-second_title);
+  font-size: clamp(1.5rem, 4vw, var(--size-second_title));
 }
 
 h3 {
-  font-size: var(--size_third_title);
+  font-size: clamp(1.2rem, 3vw, var(--size_third_title));
 }
 
 /*"Bento Grid"*/
