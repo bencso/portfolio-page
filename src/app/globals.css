@@ -91,10 +91,12 @@ h3 {
   height: 100%;
 }
 
-.parent > * {
+.parent>* {
   overflow: hidden;
 }
 
+
+/* TODO: Majd ezeket megcsinálni mert nem jók a méreket nem reszponziv */
 .child1 {
   display: flex;
   flex-direction: column;
@@ -107,6 +109,7 @@ h3 {
   flex-direction: column;
   gap: 12px;
   height: 100%;
+  max-height: 100%;
 }
 
 /*TODO: RESZPONZIVITÁS!!!! :) */
