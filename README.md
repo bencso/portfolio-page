@@ -1,6 +1,6 @@
 # Portfolio Page 🌐
 
-> Személyes React + Next.js portfolio oldal – 2025-ben indított, jelenleg INAKTIV verzió. [github](https://github.com/bencso/portfolio-page)
+> Személyes React + Next.js portfolio oldal
 
 ## 🛠️ Technológiák
 
