@@ -21,3 +21,5 @@ MIT License - Szabadon használható és módosítható
 **Státusz**: 🚧 Inaktív - Nem készült el véglegesen
 
 ---
+
+**⭐ Ha tetszik a projekt, örülök egy csillagnak!**
